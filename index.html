@@ -25,38 +25,17 @@
         <div class="sidebar__content">
           <p class="sidebar__content-title">Feature</p>
           <ul class="sidebar__content-menu">
-            <!-- <li><a href="#!">Create wallet</a></li> -->
-            <li><a href="#!">Claim ARB</a></li>
-            <!-- <li><a href="#!">Claim</a></li> -->
+            <li class="tab"><a href="#!">Claim ARB</a></li>
+            <li class="tab active"><a href="#!">Send ARB</a></li>
           </ul>
         </div>
       </div>
       <div class="content">
         <!-- <div class="content__header"></div> -->
         <div class="content__body">
-          <div class="page" id="page_create_wallet">
+          <div class="page" id="page_claim_arb">
             <div class="page__header">
-              <p class="page__title">Wallets</p>
-            </div>
-            <div class="page__content">
-              <table>
-                <tr style="position: sticky;">
-                  <th>Wallet</th>
-                  <th>Balance</th>
-                  <th>Tag</th>
-                </tr>
-                <tr>
-                  <td>0x7f15f447a8Ffb8C42526524D2d240517Cf8De1dE</td>
-                  <td>30</td>
-                  <td>ETH</td>
-                </tr>
-              </table>
-              <button class="btn btn-large mx-auto" id="js-create-wallet">Create</button>
-            </div>
-          </div>
-          <div class="page" id="page_load_wallet">
-            <div class="page__header">
-              <p class="page__title">Claim ARB</p>
+              <p class="page__title">CLAIM ARB</p>
             </div>
             <div class="page__content">
               <div class="page__overlay">
@@ -67,19 +46,40 @@
                     <th>Symbol</th>
                     <th>Status</th>
                   </tr>
-                  <!-- <tr>
-                    <td>0x7f15f447a8Ffb8C42526524D2d240517Cf8De1dE</td>
-                    <td>30</td>
-                    <td>ETH</td>
-                  </tr> -->
                 </table>
-                <!-- <p id="js-total">Total: 6006</p> -->
               </div>
               <div class="page__action">
                 <input type="file" id="js-load-wallet" accept=".txt" hidden />
-                <label for="js-load-wallet" id="js-load-label" class="btn btn-large mx-auto">Load</label>
-                <button class="btn btn-large mx-auto" id="js-claim-all">Claim All</button>
-                <button class="btn btn-large btn-error mx-auto" id="js-clear-wallet">Clear</button>
+                <label for="js-load-wallet" id="js-load-label" class="btn btn-large">Load</label>
+                <button class="btn btn-large" id="js-claim-all">Claim All</button>
+                <button class="btn btn-large btn-error" id="js-clear-wallet">Clear</button>
+              </div>
+            </div>
+          </div>
+          <div class="page active" id="page_send_arb">
+            <div class="page__header">
+              <p class="page__title">SEND ARB</p>
+            </div>
+            <div class="page__content">
+              <div style="width: 100%">
+                <p style="margin-bottom: 10px;">Receive address: </p>
+                <input type="text" id="js-address-to" placeholder="0x...">
+              </div>
+              <div class="page__overlay">
+                <table id="js-list-balance">
+                  <tr>
+                    <th>Wallet</th>
+                    <th>Balance</th>
+                    <th>Symbol</th>
+                    <th>Status</th>
+                  </tr>
+                </table>
+              </div>
+              <div class="page__action">
+                <input type="file" id="js-load-balance" accept=".txt" hidden />
+                <label for="js-load-balance" id="js-load-balance-label" class="btn btn-large">Load</label>
+                <button class="btn btn-large" id="js-send-to">Send</button>
+                <button class="btn btn-large btn-error" id="js-clear-balance">Clear</button>
               </div>
             </div>
           </div>
