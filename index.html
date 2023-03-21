@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/css/reset.css">
+  <link rel="stylesheet" href="./src/css/styles.css">
+</head>
+
+<body>
+  <div class="main">
+    <header></header>
+    <section class="container">
+      <div class="sidebar">
+        <div class="sidebar__logo">
+          <div class="sidebar__logo-icon"></div>
+          <p class="sidebar__logo-title">Tony</p>
+        </div>
+        <div class="sidebar__content">
+          <p class="sidebar__content-title">Feature</p>
+          <ul class="sidebar__content-menu">
+            <!-- <li><a href="#!">Create wallet</a></li> -->
+            <li><a href="#!">Claim ARB</a></li>
+            <!-- <li><a href="#!">Claim</a></li> -->
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+        <!-- <div class="content__header"></div> -->
+        <div class="content__body">
+          <div class="page" id="page_create_wallet">
+            <div class="page__header">
+              <p class="page__title">Wallets</p>
+            </div>
+            <div class="page__content">
+              <table>
+                <tr style="position: sticky;">
+                  <th>Wallet</th>
+                  <th>Balance</th>
+                  <th>Tag</th>
+                </tr>
+                <tr>
+                  <td>0x7f15f447a8Ffb8C42526524D2d240517Cf8De1dE</td>
+                  <td>30</td>
+                  <td>ETH</td>
+                </tr>
+              </table>
+              <button class="btn btn-large mx-auto" id="js-create-wallet">Create</button>
+            </div>
+          </div>
+          <div class="page" id="page_load_wallet">
+            <div class="page__header">
+              <p class="page__title">Claim ARB</p>
+            </div>
+            <div class="page__content">
+              <div class="page__overlay">
+                <table id="js-list-wallet">
+                  <tr>
+                    <th>Wallet</th>
+                    <th>Balance</th>
+                    <th>Symbol</th>
+                    <th>Status</th>
+                  </tr>
+                  <!-- <tr>
+                    <td>0x7f15f447a8Ffb8C42526524D2d240517Cf8De1dE</td>
+                    <td>30</td>
+                    <td>ETH</td>
+                  </tr> -->
+                </table>
+                <!-- <p id="js-total">Total: 6006</p> -->
+              </div>
+              <div class="page__action">
+                <input type="file" id="js-load-wallet" accept=".txt" hidden />
+                <label for="js-load-wallet" id="js-load-label" class="btn btn-large mx-auto">Load</label>
+                <button class="btn btn-large mx-auto" id="js-claim-all">Claim All</button>
+                <button class="btn btn-large btn-error mx-auto" id="js-clear-wallet">Clear</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content__footer">
+          <p>@Copy right 2023 by tony</p>
+        </div>
+      </div>
+    </section>
+    <footer></footer>
+  </div>
+  <script src="./src/js/web3.min.js"></script>
+  <script src="./src/js/main.js"></script>
+</body>
+
+</html>
