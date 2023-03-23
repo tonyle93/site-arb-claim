@@ -260,7 +260,7 @@ async function claimToken(accountFrom) {
     {
       to: contractAddress,
       data: claimTx.encodeABI(),
-      gas: await contract.estimateGas({
+      gas: await claimTx.estimateGas({
         from: accountFrom.address,
         gasPrice: "0x3b9aca00"
       }),
