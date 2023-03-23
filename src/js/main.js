@@ -26,6 +26,7 @@ var tabs = $$('.tab');
 var pages = $$('.page');
 var currentTab = $('.tab.active');
 var currentPage = $('.page.active');
+var loading = $('#loading');
 
 claimBtn.classList.add('btn-disabled');
 clearBtn.classList.add('btn-disabled');
@@ -103,6 +104,9 @@ clearBtn.onclick = () => {
 claimBtn.onclick = () => {
   const data = listWallet.data;
   if (data && data.length) {
+    loading.classList.toggle('active');
+    claimBtn.classList.add('btn-disabled');
+    let completedCount = 0;
     for (let index = 0; index < data.length; index++) {
       const account = data[index];
       contract.methods.claimableTokens(account.address).call({ from: account.address })
@@ -113,9 +117,28 @@ claimBtn.onclick = () => {
               editRow(index + 1, [account.address, web3.utils.fromWei(balance), "ARB", `<p class="status claimed">CLAIMED</p>`], listWallet);
             }).catch((error) => {
               editRow(index + 1, [account.address, web3.utils.fromWei(balance), "ARB", `<p class="status new">NEW</p>`], listWallet);
+            }).finally(() => {
+              completedCount++;
+              checkCompleted();
             });
           }
+          else {
+            completedCount++;
+            checkCompleted();
+          }
+        })
+        .catch((error) => {
+          completedCount++;
+          checkCompleted();
         });
+    }
+
+    function checkCompleted() {
+      if (completedCount == data.length) {
+        claimBtn.classList.remove('btn-disabled');
+        loading.classList.toggle('active');
+        alert("Done!!!");
+      }
     }
   }
 };
@@ -129,6 +152,7 @@ sendTo.onclick = () => {
   }
   if (data && data.length) {
     sendTo.classList.add('btn-disabled');
+    loading.classList.toggle('active');
     let completedCount = 0;
     for (let index = 0; index < data.length; index++) {
       const account = data[index];
@@ -159,6 +183,7 @@ sendTo.onclick = () => {
     function checkCompleted() {
       if (completedCount == data.length) {
         sendTo.classList.remove('btn-disabled');
+        loading.classList.toggle('active');
         alert("Done!!!");
       }
     }
